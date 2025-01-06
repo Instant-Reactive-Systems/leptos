@@ -906,6 +906,8 @@ mod tests {
         assert_eq!(a.get(), 0);
         assert_eq!(a.with_untracked(|n| n + 1), 1);
         assert_eq!(a.with(|n| n + 1), 1);
+    }
+
     async fn patching_only_notifies_changed_field_with_custom_patch() {
         #[derive(Debug, Store, Patch, Default)]
         struct CustomTodos {
