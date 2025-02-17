@@ -50,6 +50,7 @@ where
 {
     type Output = T;
 
+    #[track_caller]
     fn unwrap(self) -> Subfield<Self, Option<Self::Output>, Self::Output> {
         Subfield::new(
             self,
@@ -59,6 +60,7 @@ where
         )
     }
 
+    #[track_caller]
     fn map<U>(
         self,
         map_fn: impl FnOnce(Subfield<S, Option<T>, T>) -> U,
@@ -70,6 +72,7 @@ where
         }
     }
 
+    #[track_caller]
     fn map_untracked<U>(
         self,
         map_fn: impl FnOnce(Subfield<S, Option<T>, T>) -> U,
